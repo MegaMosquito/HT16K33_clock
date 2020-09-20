@@ -24,7 +24,7 @@ def brightness(b):
 def set_time(t, c):
   h = t.hour
   display.brightness = 1.0
-  if h > 20:
+  if h < 8 or h > 20:
     display.brightness = 0.05
   if h > 12: h -= 12
   s = ' %d:%02d' % (h, t.minute)

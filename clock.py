@@ -23,10 +23,12 @@ def brightness(b):
 # Given a Python datetime.datetime object, set the display accordingly
 def set_time(t, c):
   h = t.hour
-  display.brightness = 1.0
   if h < 8 or h > 20:
     display.brightness = 0.05
+  else:
+    display.brightness = 1.0
   if h > 12: h -= 12
+  if h == 0: h = 12
   s = ' %d:%02d' % (h, t.minute)
   display.print(s[-5:])
   display.colon = c
